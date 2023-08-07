@@ -6,13 +6,15 @@ News = [{"title" : "fbtherh", "text": "sghyjruk"}]
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    return render_template("index.html", news = News)
 
 @app.route("/news_detail/<int:id>")
 def news_detail(id):
-    title = News[id]["title"]
-    text = News[id]["text"]
-    return render_template("news_detail.html", title = title, text = text)
+    title = News[id][title]
+    text = News[id][text]
+    return render_template("news_detail.html",
+                           title = title,
+                           text = text)
 
 
 if __name__ == "__main__":
